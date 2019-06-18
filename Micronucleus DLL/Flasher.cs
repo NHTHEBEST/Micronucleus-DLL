@@ -83,13 +83,11 @@ namespace Micronucleus
                     lines.Add(line);
                     line = "";
                 }
-                else if (x == '\r');
-                else
+                else if (x != '\r')
                 {
-                    line = line + x;
+                    line += x;
                 }
             }
-            line = "";
             StringBuilder sb = new StringBuilder();
             foreach (string l in lines)
             {
@@ -136,6 +134,9 @@ namespace Micronucleus
             {
                 // go thrue all and chage to ralavant info
                 #region cases
+                default:
+                    Text("Internel Error");
+                    break;
                 case 1:
                     Text("> waiting for ");
                     Text(data1.ToString());
